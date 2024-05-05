@@ -1,6 +1,6 @@
-import type { Config } from "tailwindcss";
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
-const config: Config = {
+module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,13 +8,27 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ["var(--font-poppins)", ...fontFamily.sans],
+        montserrat: ["var(--font-montserrat)", ...fontFamily.sans],
+      },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "primary-gradient":
+          "linear-gradient(180.96deg, #000000 0.82%, #0C489C 129.1%)",
+      },
+      colors: {
+        primary: {
+          light: "#00D4FF",
+          dark: "#105CE0",
+          DEFAULT: "#11ABF2",
+        },
+        secondary: {
+          light: "#A179F5",
+          dark: "#7916F5",
+          DEFAULT: "#9A33F5",
+        },
       },
     },
   },
   plugins: [],
 };
-export default config;
